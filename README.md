@@ -2,7 +2,7 @@
 
 Plugin to add support for 21:9 and higher aspect ratios in FlatOut: Ultimate Carnage
 
-[preview image](https://i.imgur.com/f2w5psT.jpeg)
+![preview image](https://i.imgur.com/f2w5psT.jpeg)
 
 ## Installation
 
