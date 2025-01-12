@@ -3,6 +3,8 @@
 #include <cmath>
 #include "nya_commonhooklib.h"
 
+#include "fo2versioncheck.h"
+
 class Camera {
 public:
 	uint8_t _0[0xF0];
@@ -158,11 +160,7 @@ uintptr_t UltrawideJumpTable[] = {
 BOOL WINAPI DllMain(HINSTANCE, DWORD fdwReason, LPVOID) {
 	switch( fdwReason ) {
 		case DLL_PROCESS_ATTACH: {
-			if (NyaHookLib::GetEntryPoint() != 0x24CEF7) {
-				MessageBoxA(nullptr, aFOUCVersionFail, "nya?!~", MB_ICONERROR);
-				exit(0);
-				return TRUE;
-			}
+			DoFlatOutVersionCheck(FO2Version::FOUC_GFWL);
 
 			NyaHookLib::Patch(0x45642F, &pSendDlgItemMessageAHooked);
 			NyaHookLib::Patch<uint8_t>(0x45741D + 2, 5);
